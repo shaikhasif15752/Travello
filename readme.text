@@ -1,0 +1,40 @@
+
+Install Django:
+#pip install django
+
+To build your project, you can use django-admin with the startproject command. We will call our project djangoproject, but you can replace this with a different name. startproject will create a directory within your current working directory that includes:
+
+A management script, manage.py, which you can use to administer various Django-specific tasks.
+A directory (with the same name as the project) that includes the actual project code.
+To avoid having too many nested directories, however, let’s tell Django to place the management script and inner directory in the current directory (notice the ending dot):
+
+#django-admin startproject djangoproject .
+
+To migrate the database (this example uses SQLite by default), let’s use the migrate command with manage.py. Migrations apply any changes you’ve made to your Django models to your database schema.
+
+To migrate the database, type:
+
+python manage.py migrate
+
+Finally, let’s create an administrative user so that you can use the Djano admin interface. Let’s do this with the createsuperuser command:
+python manage.py createsuperuser
+
+Testing the Development Server
+Once you have a user, you can start up the Django development server to see what a fresh Django project looks like. You should only use this for development purposes. When you are ready to deploy, be sure to follow Django’s guidelines on deployment carefully.
+
+Before you try the development server, make sure you open the appropriate port in your firewall. If you followed the initial server setup guide and are using UFW, you can open port 8000 by typing:
+sudo ufw allow 8000
+
+Start the development server:
+
+#python manage.py runserver your_server_ip:8000
+
+Visit your server’s IP address followed by :8000 in your web browser:
+
+http://your_server_ip:8000
+
+Username : admin
+Password : admin12345
+
+To create a new app:
+# python manage.py startapp name_of_app
